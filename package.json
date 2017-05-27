@@ -15,13 +15,22 @@
     "jquery": "2.2.x"
   },
   "devDependencies": {
+    "css-loader": "0.28.3",
+    "copy-webpack-plugin": "4.0.1",
+    "extract-text-webpack-plugin": "2.1.0",
     "http-server": "^0.9.0",
+    "file-loader": "0.11.1",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.3",
     "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.8",
-    "protractor": "^4.0.9"
+    "html-webpack-plugin": "2.28.0",
+    "ng-cache-loader": "0.0.24",
+    "required-loader": "1.2.11",
+    "protractor": "^4.0.9",
+    "webpack": "2.5.1",
+    "webpack-dev-server": "2.4.5"
   },
   "scripts": {
     "prestart": "npm install",
@@ -37,6 +46,9 @@
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor e2e-tests/protractor.conf.js",
 
-    "update-index-async": "node -e \"var fs=require('fs'),indexFile='app/index-async.html',loaderFile='app/bower_components/angular-loader/angular-loader.min.js',loaderText=fs.readFileSync(loaderFile,'utf-8').split(/sourceMappingURL=angular-loader.min.js.map/).join('sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map'),indexText=fs.readFileSync(indexFile,'utf-8').split(/\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/).join('//@@NG_LOADER_START@@\\n'+loaderText+'    //@@NG_LOADER_END@@');fs.writeFileSync(indexFile,indexText);\""
+    "update-index-async": "node -e \"var fs=require('fs'),indexFile='app/index-async.html',loaderFile='app/bower_components/angular-loader/angular-loader.min.js',loaderText=fs.readFileSync(loaderFile,'utf-8').split(/sourceMappingURL=angular-loader.min.js.map/).join('sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map'),indexText=fs.readFileSync(indexFile,'utf-8').split(/\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/).join('//@@NG_LOADER_START@@\\n'+loaderText+'    //@@NG_LOADER_END@@');fs.writeFileSync(indexFile,indexText);\"",
+
+    "webpack": "webpack",
+    "dev": "webpack-dev-server"
   }
 }

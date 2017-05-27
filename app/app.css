@@ -1,3 +1,6 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import './app.animations.css';
+
 body {
   padding: 20px;
 }
