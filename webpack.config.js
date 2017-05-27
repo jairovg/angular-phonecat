@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const PATHS = {
   app: path.join(__dirname, 'app', 'app.js'),
+  appts: path.join(__dirname, 'app', 'app.ts'),
   build: path.join(__dirname, 'build'),
   index: path.join(__dirname, 'app', 'index.html'),
   images: path.join(__dirname, 'app', 'img'),
@@ -20,7 +21,7 @@ let config = {
   // We'll be using the latter form given it's
   // convenient with more complex configurations.
   entry: {
-    app: PATHS.app,
+    app: [PATHS.app, PATHS.appts],
     styles: PATHS.styles
   },
   output: {
@@ -28,7 +29,11 @@ let config = {
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['*', '.js'],
+    extensions: ['*', '.js', '.ts'],
+    modules: [
+      'node_modules',
+      'app'
+    ]
   },
   devtool: sourceMapDevTool,
   plugins: [
@@ -68,6 +73,10 @@ let config = {
         test: /app\.js$/,
         loader: 'required-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.ts$/,
+        loader: 'awesome-typescript-loader'
       },
       {
         test: /\.html$/,
