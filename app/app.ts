@@ -1,4 +1,11 @@
-import { Greeter } from 'greeter';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { UpgradeModule } from '@angular/upgrade/static';
+import { AppModule } from 'app.module.ts';
 
-let greeter = new Greeter('Jairo');
-console.log(greeter.greet());
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .then(platformRef => {
+    const upgrade = platformRef.injector.get(UpgradeModule) as UpgradeModule;
+    upgrade.bootstrap(document.documentElement, ['phonecatApp']);
+  })
+  ;

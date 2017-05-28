@@ -10,6 +10,7 @@ const PATHS = {
   build: path.join(__dirname, 'build'),
   index: path.join(__dirname, 'app', 'index.html'),
   images: path.join(__dirname, 'app', 'img'),
+  polyfills: path.join(__dirname, 'app', 'polyfills.ts'),
   styles: path.join(__dirname, 'app', 'app.css'),
   mocks: path.join(__dirname, 'app', 'phones')
 };
@@ -22,6 +23,7 @@ let config = {
   // convenient with more complex configurations.
   entry: {
     app: [PATHS.app, PATHS.appts],
+    polyfills: PATHS.polyfills,
     styles: PATHS.styles
   },
   output: {
@@ -65,7 +67,10 @@ let config = {
           '*.gitkeep'
         ]
       }),
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['app', 'polyfills']
+    }),
   ],
   module: {
     rules: [
