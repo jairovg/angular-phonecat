@@ -20,15 +20,8 @@
     <div class="col-md-10">
       <!--Body content-->
 
-      <ul class="phones">
-        <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp"
-            class="thumbnail phone-list-item">
-          <phone  id="phone.id"
-                  image-url="phone.imageUrl"
-                  name="phone.name"
-                  snippet="phone.snippet"></phone>
-        </li>
-      </ul>
+      <phones query="$ctrl.query"
+              order="$ctrl.orderProp"></phones>
 
     </div>
   </div>
