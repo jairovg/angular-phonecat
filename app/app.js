@@ -15,5 +15,6 @@ require('./core/phone/phone.module');
 require('./core/phone/phone.service');
 require('./phone-list/phone-list.module');
 require('./phone-list/phone-list.component');
+require('./phone-list/phone.component');
 require('./phone-detail/phone-detail.module');
 require('./phone-detail/phone-detail.component');
