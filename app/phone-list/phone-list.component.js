@@ -5,9 +5,8 @@ angular.
   module('phoneList').
   component('phoneList', {
     templateUrl: 'phone-list/phone-list.template.html',
-    controller: ['Phone',
-      function PhoneListController(Phone) {
-        this.phones = Phone.query();
+    controller: [
+      function PhoneListController() {
         this.orderProp = 'age';
       }
     ]

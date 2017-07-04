@@ -10,7 +10,13 @@ angular.
     },
     controller: ['Phone',
       function PhoneController(Phone) {
-        this.phones = Phone.query();
+        var self = this;
+        Phone
+            .query()
+            .then(function (phones) {
+              self.phones = phones;
+            })
+            ;
       }
     ]
   });

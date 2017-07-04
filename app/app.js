@@ -11,8 +11,6 @@ require('./app.config');
 require('./app.animations');
 require('./core/core.module');
 require('./core/checkmark/checkmark.filter');
-require('./core/phone/phone.module');
-require('./core/phone/phone.service');
 require('./phone-list/phone-list.module');
 require('./phone-list/phone-list.component');
 require('./phone-list/phones.component');
