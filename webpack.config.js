@@ -85,12 +85,33 @@ let config = {
       },
       {
         test: /\.html$/,
-        exclude: PATHS.index,
+        exclude: [
+          PATHS.index,
+          /ng2/
+        ],
         loader: 'ng-cache-loader',
         options: {
           prefix: '[dir]',
           module: 'phoneTemplates'
         }
+      },
+      {
+        test: /\.html$/,
+        exclude: [
+          PATHS.index,
+          /^((?!ng2).)*$/,
+          /node_modules/
+        ],
+        use: [{
+          loader: 'html-loader',
+          options: {
+            minimize: true,
+            removeAttributeQuotes: false,
+            caseSensitive: true,
+            customAttrSurround: [ [/#/, /(?:)/], [/\*/, /(?:)/], [/\[?\(?/, /(?:)/] ],
+            customAttrAssign: [ /\)?\]?=/ ]
+          }
+        }],
       },
       {
         test: /\.css$/,

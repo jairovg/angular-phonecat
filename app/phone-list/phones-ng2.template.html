@@ -1,0 +1,9 @@
+<ul class="phones">
+  <li *ngFor="let ph of phones"
+      class="thumbnail phone-list-item">
+    <phone  [id]="ph.id"
+            [imageUrl]="ph.imageUrl"
+            [name]="ph.name"
+            [snippet]="ph.snippet"></phone>
+  </li>
+</ul>
